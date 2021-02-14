@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class Player : MonoBehaviour
         if(health <= 0)
         {
             //todo
+            if(onPlayerDeath != null)
+            {
+                onPlayerDeath(this);
+            }
         }
     }
 
@@ -38,5 +43,8 @@ public class Player : MonoBehaviour
             collidedWithEnemy(enemy);
         }
     }
+
+    //unity event
+    public event Action<Player> onPlayerDeath;
 
 }
