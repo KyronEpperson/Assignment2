@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public static bool gameIsOver = false;
+    public float restartDelay = 1f;
 
     public void endGame()
     {
         if (gameIsOver == false)
         {
-            gameIsOver = true;
+            gameHasEnded = true;
             Debug.Log("Game over");
 
             //restart game

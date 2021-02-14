@@ -26,10 +26,17 @@ public class GameController : MonoBehaviour
         enemyProducer.SpawnEnemies(false);
         Destroy(player.gameObject);
 
-        Invoke("restartGame", 3);
+        invoke("endGame", 3);
+
+        //Invoke("restartGame", 3);
     }
 
-    void restartGame()
+    void endGame ()
+    {
+        FindObjectOfType<GameManager>().GameOver();
+    }
+
+    /*void restartGame()
     {
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemy in enemies)
@@ -43,7 +50,7 @@ public class GameController : MonoBehaviour
         enemyProducer.SpawnEnemies(true);
         playerObject.GetComponent<Player>().onPlayerDeath += onPlayerDeath;
     }
-
+    */
 
 
 }
