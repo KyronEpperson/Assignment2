@@ -15,18 +15,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+     
     }
 
     void collidedWithEnemy(Enemy enemy)
     {
         // Enemy attack code
         enemy.Attack(this);
+        if(health <= 0)
+        {
+            //todo
+        }
     }
 
+  
     void OnCollisionEnter(Collision col)
     {
         Enemy enemy = col.collider.gameObject.GetComponent<Enemy>();
-        collidedWithEnemy(enemy);
+
+        if (enemy)
+        {
+            collidedWithEnemy(enemy);
+        }
     }
+
 }
